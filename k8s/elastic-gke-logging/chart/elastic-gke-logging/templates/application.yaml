@@ -12,7 +12,7 @@ metadata:
     app.kubernetes.io/name: "{{ .Release.Name }}"
 spec:
   descriptor:
-    type: Elastic GKE Logging
+    type: Elastic GKE Logging with tweaks by pcai
     version: '6.3'
     description: |-
       Elastic GKE Logging is an application that provides a fully functional solution for collecting

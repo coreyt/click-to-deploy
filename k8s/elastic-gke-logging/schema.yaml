@@ -32,8 +32,8 @@ properties:
     type: integer
     title: Elasticsearch replicas
     description: The number of replicas for Elasticsearch StatefulSet
-    default: 2
-    minimum: 2
+    default: 1
+    minimum: 1
   fluentd.serviceAccount:
     type: string
     title: Fluentd Service Account

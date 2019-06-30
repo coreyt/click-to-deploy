@@ -1,0 +1,84 @@
+POST https://container.googleapis.com/v1beta1/projects/api-5498240749530952133-752265/zones/us-central1-a/clusters
+{
+  "cluster": {
+    "name": "wonderlake-cluster-1",
+    "masterAuth": {
+      "clientCertificateConfig": {}
+    },
+    "loggingService": "logging.googleapis.com",
+    "monitoringService": "monitoring.googleapis.com",
+    "network": "projects/api-5498240749530952133-752265/global/networks/default",
+    "addonsConfig": {
+      "httpLoadBalancing": {},
+      "horizontalPodAutoscaling": {},
+      "kubernetesDashboard": {
+        "disabled": true
+      },
+      "istioConfig": {
+        "disabled": true
+      }
+    },
+    "subnetwork": "projects/api-5498240749530952133-752265/regions/us-central1/subnetworks/default",
+    "nodePools": [
+      {
+        "name": "ondemand-pool",
+        "config": {
+          "machineType": "custom-1-5120",
+          "diskSizeGb": 20,
+          "oauthScopes": [
+            "https://www.googleapis.com/auth/cloud-platform"
+          ],
+          "metadata": {
+            "disable-legacy-endpoints": "true"
+          },
+          "imageType": "COS",
+          "localSsdCount": 1,
+          "diskType": "pd-standard"
+        },
+        "initialNodeCount": 1,
+        "autoscaling": {},
+        "management": {
+          "autoRepair": true
+        },
+        "version": "1.12.8-gke.10"
+      },
+      {
+        "name": "preemptible-pool-1",
+        "config": {
+          "machineType": "n1-standard-2",
+          "diskSizeGb": 20,
+          "oauthScopes": [
+            "https://www.googleapis.com/auth/cloud-platform"
+          ],
+          "metadata": {
+            "disable-legacy-endpoints": "true"
+          },
+          "imageType": "COS",
+          "preemptible": true,
+          "diskType": "pd-standard"
+        },
+        "initialNodeCount": 2,
+        "autoscaling": {},
+        "management": {
+          "autoUpgrade": true,
+          "autoRepair": true
+        },
+        "version": "1.12.8-gke.10"
+      }
+    ],
+    "networkPolicy": {},
+    "ipAllocationPolicy": {
+      "useIpAliases": true
+    },
+    "masterAuthorizedNetworksConfig": {},
+    "defaultMaxPodsConstraint": {
+      "maxPodsPerNode": "110"
+    },
+    "privateClusterConfig": {},
+    "databaseEncryption": {
+      "state": "DECRYPTED"
+    },
+    "initialClusterVersion": "1.12.8-gke.10",
+    "location": "us-central1-a"
+  }
+}
